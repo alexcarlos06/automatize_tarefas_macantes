@@ -4,22 +4,32 @@
 
 Definir práticas para que a solução possa ser mantida pelo time de TI e distribuída com segurança ao usuário final.
 
-## 2. Repositório
+## 2. Organização no monorepo
 
-Código-fonte deve permanecer em repositório controlado pela TI.
-
-Estrutura mínima:
+O projeto utiliza o repositório único:
 
 ```text
-/
-├── src/
-├── tests/
-├── docs/
-├── scripts/
-├── .gitignore
-├── pyproject.toml
-└── README.md
+alexcarlos06/automatize_tarefas_macantes
 ```
+
+Cada automação deve permanecer isolada em seu próprio diretório na raiz do monorepo.
+
+Para esta solução, a estrutura mínima é:
+
+```text
+automatize_tarefas_macantes/
+└── separador_comprovantes_itau/
+    ├── README.md
+    ├── pyproject.toml
+    ├── docs/
+    ├── src/
+    ├── tests/
+    └── scripts/
+```
+
+Código-fonte, testes, documentação e arquivos de configuração específicos devem permanecer dentro de `separador_comprovantes_itau/`.
+
+Uma automação não deve modificar ou depender de outra sem necessidade técnica explícita. Componentes compartilhados só devem ser criados quando houver reutilização real e benefício de manutenção comprovado.
 
 Arquivos financeiros reais não devem ser versionados.
 
@@ -50,7 +60,7 @@ Cobrir:
 ### 4.2 Extratores
 
 Um conjunto de testes por layout:
-- transferência/PIX;
+- transferência;
 - TED;
 - transferência entre contas;
 - títulos outros bancos;
@@ -104,7 +114,7 @@ Ferramentas sugeridas:
 
 ## 7. Versionamento
 
-Usar versionamento semântico quando aplicável:
+Usar versionamento semântico por automação quando aplicável:
 
 ```text
 MAJOR.MINOR.PATCH
@@ -116,18 +126,21 @@ Exemplos:
 - `0.2.1` — correção sem alteração funcional relevante;
 - `1.0.0` — primeira versão considerada estável.
 
+O versionamento de uma automação não obriga as demais soluções do monorepo a adotarem a mesma versão.
+
 ## 8. Git
 
-Sugestão:
+Diretrizes:
 - `main` protegida;
 - desenvolvimento por branches;
 - Pull Request;
 - revisão por TI;
-- commits pequenos e descritivos.
+- commits pequenos e descritivos;
+- evitar alterações em diretórios de outras automações quando não fizerem parte do escopo.
 
 ## 9. Build
 
-O build deve produzir executável Windows.
+O build deve produzir executável Windows específico desta automação.
 
 Preferência:
 - build reproduzível;
@@ -213,7 +226,7 @@ Princípios:
 Decisões relevantes devem ser registradas em:
 
 ```text
-docs/adr/
+separador_comprovantes_itau/docs/adr/
 ```
 
 Exemplos:
@@ -249,4 +262,5 @@ Uma funcionalidade é considerada concluída quando:
 - tratamento de erro implementado;
 - lint/testes aprovados;
 - comportamento validado em GUI e/ou CLI conforme impacto;
-- não contém dados financeiros reais no repositório.
+- não contém dados financeiros reais no repositório;
+- alterações permanecem restritas à automação afetada, salvo necessidade técnica documentada.
