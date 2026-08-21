@@ -1,0 +1,112 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.*
+credentials.*
+
+# Build / distribuição
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+pip-wheel-metadata/
+
+# PyInstaller
+*.spec
+*.manifest
+
+# Testes / cobertura
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.cover
+.hypothesis/
+.tox/
+.nox/
+
+# Type checking / lint
+.mypy_cache/
+.pyright/
+.ruff_cache/
+
+# Logs, debug e temporários
+*.log
+logs/
+Logs/
+debug/
+Debug/
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+~$*
+tmp/
+temp/
+
+# Saídas geradas pelas automações
+output/
+outputs/
+saida/
+Saida/
+historico/
+Historico/
+pendencias/
+Pendencias/
+
+# Dados financeiros / arquivos reais
+*.pdf
+*.xlsx
+*.xls
+*.csv
+samples/
+sample/
+dados_reais/
+arquivos_reais/
+
+# Fixtures anonimizadas podem ser versionadas
+!tests/fixtures/**/*.pdf
+!tests/fixtures/**/*.csv
+!tests/fixtures/**/*.xlsx
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+
+# Outras IDEs
+.idea/
+*.iml
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Jupyter
+.ipynb_checkpoints/
