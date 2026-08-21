@@ -18,6 +18,21 @@ trabalho.
 Cada solução deve buscar transformar processos manuais em fluxos mais
 simples, padronizados, rastreáveis e fáceis de utilizar.
 
+## Modelo do repositório
+
+Este projeto utiliza o modelo **monorepo**.
+
+Todas as automações são mantidas no repositório
+`alexcarlos06/automatize_tarefas_macantes`, e cada automação deve possuir
+seu próprio diretório na raiz.
+
+Cada diretório representa uma solução independente e deve concentrar seu
+código-fonte, testes, documentação e arquivos de configuração específicos.
+
+Uma automação não deve depender de outra sem necessidade técnica explícita.
+O compartilhamento de componentes entre soluções deve ser introduzido
+somente quando houver benefício comprovado, evitando acoplamento prematuro.
+
 ## Objetivos
 
 -   Automatizar tarefas manuais e repetitivas.
@@ -52,26 +67,35 @@ compreensíveis e sustentáveis ao longo do tempo.
 ## Estrutura do repositório
 
 Cada automação deve ser tratada como uma solução independente dentro do
-repositório.
+monorepo.
 
-Estrutura inicial sugerida:
+Estrutura sugerida:
 
-``` text
+```text
 automatize_tarefas_macantes/
-│
 ├── README.md
-│
+├── .gitignore
 ├── separador_comprovantes_itau/
+│   ├── README.md
+│   ├── pyproject.toml
+│   ├── docs/
+│   ├── src/
+│   ├── tests/
+│   └── scripts/
+├── futura_automacao_a/
 │   ├── README.md
 │   ├── docs/
 │   ├── src/
 │   └── tests/
-│
-└── futuras_automacoes/
+└── futura_automacao_b/
+    ├── README.md
+    ├── docs/
+    ├── src/
+    └── tests/
 ```
 
 A estrutura interna poderá variar conforme a necessidade de cada
-solução.
+solução, mantendo baixo acoplamento entre as automações.
 
 ## Soluções
 
@@ -100,7 +124,7 @@ Principais funcionalidades previstas:
 -   execução via linha de comando.
 
 Documentação específica da solução deve permanecer dentro do próprio
-diretório da feature.
+diretório da automação.
 
 ## Tecnologias
 
@@ -124,9 +148,10 @@ ferramenta.
 
 ## Qualidade
 
-Sempre que aplicável, as soluções devem possuir:
+Sempre que aplicável, cada automação deve possuir dentro do próprio
+diretório:
 
-``` text
+```text
 src/        Código-fonte
 tests/      Testes automatizados
 docs/       Documentação técnica e funcional
@@ -159,11 +184,12 @@ anonimizados.
 Este repositório não representa uma única aplicação.
 
 A ideia é formar progressivamente um catálogo de pequenas soluções
-capazes de eliminar tarefas maçantes do cotidiano.
+independentes, mantidas em um único monorepo, capazes de eliminar tarefas
+maçantes do cotidiano.
 
 Uma nova automação pode começar pequena:
 
-``` text
+```text
 Problema manual
       ↓
 Automação

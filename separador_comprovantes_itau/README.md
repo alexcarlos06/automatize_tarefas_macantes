@@ -2,6 +2,8 @@
 
 Aplicação interna para automatizar a separação, identificação, renomeação e organização de comprovantes extraídos em PDF do Bankline Itaú.
 
+Esta automação faz parte do monorepo `alexcarlos06/automatize_tarefas_macantes` e deve permanecer isolada em seu próprio diretório, concentrando documentação, código-fonte, testes e arquivos de configuração específicos da solução.
+
 ## Objetivo
 
 Substituir o processo manual em que o usuário:
@@ -12,6 +14,22 @@ Substituir o processo manual em que o usuário:
 5. organiza os arquivos por data de pagamento.
 
 A aplicação será distribuída ao usuário final como executável Windows, mantendo o código-fonte sob responsabilidade do time de TI.
+
+## Estrutura da automação
+
+Estrutura prevista dentro do monorepo:
+
+```text
+separador_comprovantes_itau/
+├── README.md
+├── pyproject.toml
+├── docs/
+├── src/
+├── tests/
+└── scripts/
+```
+
+A automação não deve depender de outras soluções do monorepo sem necessidade técnica explícita.
 
 ## Documentação
 
