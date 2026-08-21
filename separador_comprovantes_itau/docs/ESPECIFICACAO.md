@@ -4,13 +4,19 @@
 
 **Separador de Comprovantes Itaú**
 
-Nome técnico sugerido do repositório: `separador-comprovantes-itau`.
+Diretório da automação no monorepo:
+
+```text
+separador_comprovantes_itau/
+```
+
+Esta solução faz parte do repositório único `alexcarlos06/automatize_tarefas_macantes`. Não deve ser tratada como um repositório separado.
 
 ## 2. Objetivo
 
 Desenvolver uma aplicação Windows em Python capaz de receber um PDF consolidado de comprovantes extraído do Bankline Itaú, identificar os comprovantes existentes, separar cada comprovante em um PDF individual, extrair seus dados principais, padronizar o nome do arquivo e armazená-lo automaticamente em uma estrutura de diretórios baseada na data do pagamento.
 
-O código-fonte será mantido e evoluído pelo time de TI. O usuário final receberá um executável, sem necessidade de possuir ambiente Python configurado.
+O código-fonte será mantido e evoluído pelo time de TI dentro do monorepo. O usuário final receberá um executável, sem necessidade de possuir ambiente Python configurado.
 
 ## 3. Contexto do processo atual
 
@@ -174,7 +180,7 @@ Windows.
 Executável independente para usuário final.
 
 ### RNF-03 — Manutenibilidade
-Código-fonte modular sob responsabilidade de TI.
+Código-fonte modular sob responsabilidade de TI e mantido no diretório da automação dentro do monorepo.
 
 ### RNF-04 — Testabilidade
 Regras de domínio e extratores devem possuir testes automatizados.
@@ -190,6 +196,9 @@ Mensagens operacionais na GUI/CMD e log técnico opcional em modo debug.
 
 ### RNF-08 — Recuperação
 Falhas individuais não devem invalidar comprovantes processados corretamente.
+
+### RNF-09 — Isolamento no monorepo
+A automação deve manter seu código, testes, documentação e configuração dentro de `separador_comprovantes_itau/`, evitando dependências com outras automações sem necessidade técnica explícita.
 
 ## 13. Fora do escopo inicial
 
